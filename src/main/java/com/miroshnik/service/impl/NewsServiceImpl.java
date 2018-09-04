@@ -26,7 +26,7 @@ public class NewsServiceImpl implements NewsService {
     @Override
     public void printAll() {
         News news = new News();
-//        newsRepository.findAll(news);
+        newsRepository.findAll(news);
 
     }
 }
