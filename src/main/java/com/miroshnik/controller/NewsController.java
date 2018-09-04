@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 public class NewsController {
@@ -19,8 +20,12 @@ public class NewsController {
     @RequestMapping(value ="/new-news" , method = RequestMethod.POST)
     public String saveCategoryPage(HttpServletRequest request, HttpServletResponse response, Model model){
         String newsTitle = request.getParameter("newsTitle");
-        News news = newsService.save(newsTitle);
+      News news = newsService.save(newsTitle);
+        List<News> newsList = newsService.printAll();
+        model.addAttribute("newsList", newsList);
+
         model.addAttribute("news",news);
+
         return "successTitle";
     }
 

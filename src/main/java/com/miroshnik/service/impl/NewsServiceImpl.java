@@ -6,6 +6,8 @@ import com.miroshnik.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class NewsServiceImpl implements NewsService {
     @Autowired
@@ -24,9 +26,10 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public void printAll() {
+    public List<News> printAll() {
         News news = new News();
-        newsRepository.findAll(news);
+        newsRepository.findAll();
 
+        return null;
     }
 }

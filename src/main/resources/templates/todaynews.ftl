@@ -9,9 +9,15 @@
     <button type="submit">Отправить</button>
 </form>
 
- <table>
-
- </table>
+<table>
+<#list newsList as news>
+    <tr>
+        <td>
+        ${news.title}
+        </td>
+    </tr>
+</#list>
+</table>
 </body>
 </head>
 </html>
