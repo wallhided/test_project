@@ -6,7 +6,7 @@ import com.miroshnik.model.News;
 import java.util.List;
 
 public interface NewsService {
-    News save(String title , String source ,String fulltext );
+    News save(News news );
 
     void delete(int id);
 

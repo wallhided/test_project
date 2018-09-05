@@ -3,6 +3,7 @@ package com.miroshnik.service.impl;
 import com.miroshnik.model.News;
 import com.miroshnik.repository.NewsRepository;
 import com.miroshnik.service.NewsService;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,16 +15,17 @@ public class NewsServiceImpl implements NewsService {
     private NewsRepository newsRepository;
 
     @Override
-    public News save(String title , String source , String fulltext) {
-        News news = new News();
-        news.setTitle(title);
-        news.setSource(source);
-        news.setFulltext(fulltext);
+    public News save(News news) {
+
         return newsRepository.save(news);
     }
 
     @Override
     public void delete(int id) {
+        News news = new News();
+        if (id == news.getId()) {
+            newsRepository.delete(id);
+        }
 
     }
 

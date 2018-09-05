@@ -20,7 +20,11 @@
         <td>
         ${news.fulltext}
         </td>
-
+        <td>
+            <form action="/successdelete" method="post">
+                <button><a href="/successdelete?id=${news.id}"> x</a> </button>
+                </form>
+        </td>
     </tr>
 
 </#list>

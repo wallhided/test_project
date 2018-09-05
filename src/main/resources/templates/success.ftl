@@ -2,7 +2,7 @@
 <head>
 <body>
 <div>
-    Успех! Id = ${category.id}, name = ${category.name}
+    Успех!
 </div>
 </body>
 </head>
