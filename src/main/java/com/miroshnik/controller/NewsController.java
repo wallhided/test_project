@@ -20,10 +20,11 @@ public class NewsController {
     @RequestMapping(value ="/new-news" , method = RequestMethod.POST)
     public String saveCategoryPage(HttpServletRequest request, HttpServletResponse response, Model model){
         String newsTitle = request.getParameter("newsTitle");
-      News news = newsService.save(newsTitle);
+        String newsSource = request.getParameter("newsSource");
+        String newsFulltext = request.getParameter("newsFulltext");
+      News news = newsService.save(newsTitle ,newsSource,newsFulltext );
         List<News> newsList = newsService.printAll();
         model.addAttribute("newsList", newsList);
-
         model.addAttribute("news",news);
 
         return "successTitle";

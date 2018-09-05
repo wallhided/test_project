@@ -14,9 +14,11 @@ public class NewsServiceImpl implements NewsService {
     private NewsRepository newsRepository;
 
     @Override
-    public News save(String title) {
+    public News save(String title , String source , String fulltext) {
         News news = new News();
         news.setTitle(title);
+        news.setSource(source);
+        news.setFulltext(fulltext);
         return newsRepository.save(news);
     }
 
@@ -27,9 +29,6 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public List<News> printAll() {
-        News news = new News();
-        newsRepository.findAll();
-
-        return null;
+        return newsRepository.findAll();
     }
 }

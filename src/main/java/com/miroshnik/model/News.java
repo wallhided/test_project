@@ -17,7 +17,8 @@ public class News {
     private String title;
 
     @Column
-    private String fullText;
+    private String fulltext;
+
 
     @Column
     private String source;
@@ -26,11 +27,12 @@ public class News {
     public News(){
     }
 
-    public News(String title ,Boolean isDeleted,  String fullText, String source) {
+    public News(String title , Boolean isDeleted, String fulltext, String source) {
         this.title = title;
-        this.isDeleted = isDeleted;
-        this.fullText = fullText;
+        this.fulltext = fulltext;
         this.source = source;
+        this.isDeleted = isDeleted;
+
     }
 
     public int getId() {
@@ -57,12 +59,12 @@ public class News {
         this.title = title;
     }
 
-    public String getFullText() {
-        return fullText;
+    public String getFulltext() {
+        return fulltext;
     }
 
-    public void setFullText(String fullText) {
-        this.fullText = fullText;
+    public void setFulltext(String fulltext) {
+        this.fulltext = fulltext;
     }
 
     public String getSource() {
