@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -30,9 +31,25 @@ public class NewsController {
 
         return "successTitle";
     }
-    @RequestMapping(value ="/successdelete" , method = RequestMethod.DELETE )
-    public String deleteNewsPage(@RequestParam("id") int id ,HttpServletRequest request, HttpServletResponse response, Model model ){
+    @RequestMapping(value ="/successdelete" , method = RequestMethod.GET )
+    public String deleteNewsPage(@RequestParam(name = "id" , required = true) int id ,HttpServletRequest request, HttpServletResponse response, Model model ){
         newsService.delete(id);
+        return "success";
+    }
+    @RequestMapping (value = "/editnews" , method = RequestMethod.GET)
+    public String editNewsPage(@RequestParam(name = "id" , required = true) int id , HttpServletRequest request, HttpServletResponse response, Model model){
+
+        News news = newsService.findById(id);
+
+
+        model.addAttribute("news",news);
+        return "editNews";
+    }
+    @RequestMapping(value = "/successEditedNews", method =RequestMethod.POST)
+    public String saveEditedNewsPage(HttpServletRequest request, HttpServletResponse response, Model model){
+        NewsConventer newsConventer = new NewsConventer();
+        News editedNews = newsService.save(newsConventer.toNews(request));
+        model.addAttribute("editedNews" , editedNews);
         return "success";
     }
 }

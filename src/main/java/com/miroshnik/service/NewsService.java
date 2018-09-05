@@ -10,5 +10,7 @@ public interface NewsService {
 
     void delete(int id);
 
+    News findById(int id);
+
     List<News> printAll();
 }

@@ -22,11 +22,14 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public void delete(int id) {
-        News news = new News();
-        if (id == news.getId()) {
             newsRepository.delete(id);
-        }
 
+
+    }
+
+    @Override
+    public News findById(int id) {
+        return newsRepository.getOne(id);
     }
 
     @Override

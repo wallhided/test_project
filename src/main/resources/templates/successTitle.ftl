@@ -22,7 +22,8 @@
         </td>
         <td>
             <form action="/successdelete" method="post">
-                <button><a href="/successdelete?id=${news.id}"> x</a> </button>
+                <button><a href="/successdelete?id=${news.id}"> X </a> </button>
+                <button><a href="/editnews?id=${news.id}"> Edit </a> </button>
                 </form>
         </td>
     </tr>
