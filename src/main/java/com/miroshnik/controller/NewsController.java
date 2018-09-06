@@ -19,37 +19,40 @@ import java.util.List;
 public class NewsController {
 
     @Autowired
-   private   NewsService newsService;
-    @RequestMapping(value ="/new-news" , method = RequestMethod.POST)
-    public String saveNewsPage(HttpServletRequest request, HttpServletResponse response, Model model){
+    private NewsService newsService;
+
+    @RequestMapping(value = "/new-news", method = RequestMethod.POST)
+    public String saveNewsPage(HttpServletRequest request, HttpServletResponse response, Model model) {
         NewsConventer newsCon = new NewsConventer();
 
-      News news = newsService.save(newsCon.toNews(request));
+        News news = newsService.save(newsCon.toNews(request));
         List<News> newsList = newsService.printAll();
         model.addAttribute("newsList", newsList);
-        model.addAttribute("news",news);
+        model.addAttribute("news", news);
 
         return "successTitle";
     }
-    @RequestMapping(value ="/successdelete" , method = RequestMethod.GET )
-    public String deleteNewsPage(@RequestParam(name = "id" , required = true) int id ,HttpServletRequest request, HttpServletResponse response, Model model ){
+
+    @RequestMapping(value = "/successdelete", method = RequestMethod.GET)
+    public String deleteNewsPage(@RequestParam(name = "id", required = true) int id, HttpServletRequest request, HttpServletResponse response, Model model) {
         newsService.delete(id);
         return "success";
     }
-    @RequestMapping (value = "/editnews" , method = RequestMethod.GET)
-    public String editNewsPage(@RequestParam(name = "id" , required = true) int id , HttpServletRequest request, HttpServletResponse response, Model model){
+
+    @RequestMapping(value = "/editnews", method = RequestMethod.GET)
+    public String editNewsPage(@RequestParam(name = "id", required = true) int id, HttpServletRequest request, HttpServletResponse response, Model model) {
 
         News news = newsService.findById(id);
-
-
-        model.addAttribute("news",news);
+        model.addAttribute("news", news);
         return "editNews";
     }
-    @RequestMapping(value = "/successEditedNews", method =RequestMethod.POST)
+
+   @RequestMapping(value = "/successEditedNews", method =RequestMethod.POST)
     public String saveEditedNewsPage(HttpServletRequest request, HttpServletResponse response, Model model){
         NewsConventer newsConventer = new NewsConventer();
-        News editedNews = newsService.save(newsConventer.toNews(request));
-        model.addAttribute("editedNews" , editedNews);
+
+        News news = newsService.save(newsConventer.toNews(request));
+        model.addAttribute("news" , news);
         return "success";
     }
 }
