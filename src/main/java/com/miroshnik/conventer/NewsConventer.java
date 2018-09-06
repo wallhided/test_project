@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class NewsConventer  {
+public class NewsConventer {
 
       private NewsService newsService2;
 
