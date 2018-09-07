@@ -13,7 +13,7 @@
 
 <table>
     <tr> <b>Заголовок</b>&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>источник</b> </tr>
-<#list newsList as news>
+<#list  newsList as news>
 
     <tr>
 
