@@ -7,9 +7,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController {
 
-    @RequestMapping( value = "/todaynews", method = RequestMethod.GET)
+    @RequestMapping( value = "", method = RequestMethod.GET)
     public String showForm(){
-        return "todaynews";
+
+        return "all-news";
     }
 
+
+    @RequestMapping( value = "/todaynews", method = RequestMethod.GET)
+    public String addNews(){
+
+        return "todaynews";
+    }
+    @RequestMapping( value = "/index", method = RequestMethod.GET)
+    public String newCattegoty(){
+
+        return "index";
+    }
 }

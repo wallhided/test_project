@@ -1,9 +1,0 @@
-<html>
-<head>
-<body>
-<div>
-    Успех!
-</div>
-</body>
-</head>
-</html>

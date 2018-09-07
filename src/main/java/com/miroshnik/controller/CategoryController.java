@@ -22,6 +22,6 @@ public class CategoryController {
         String categoryName = request.getParameter("categoryName");
         Category category = categoryService.save(categoryName);
         model.addAttribute("category", category);
-        return "success";
+        return "successTitle";
     }
 }

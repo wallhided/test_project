@@ -3,7 +3,6 @@ package com.miroshnik.service.impl;
 import com.miroshnik.model.News;
 import com.miroshnik.repository.NewsRepository;
 import com.miroshnik.service.NewsService;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +10,7 @@ import java.util.List;
 
 @Service
 public class NewsServiceImpl implements NewsService {
+
     @Autowired
     private NewsRepository newsRepository;
 
@@ -33,7 +33,18 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
+    public List<News> findByCatId(int categoryId) {
+        return newsRepository.findByCategoryId(categoryId);
+    }
+
+
+    @Override
     public List<News> printAll() {
         return newsRepository.findAll();
     }
-}
+
+
+    }
+
+
+

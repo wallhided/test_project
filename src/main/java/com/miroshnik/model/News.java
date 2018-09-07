@@ -19,6 +19,8 @@ public class News {
     @Column
     private String fulltext;
 
+    @Column
+    private int categoryId;
 
     @Column
     private String source;
@@ -27,11 +29,12 @@ public class News {
     public News(){
     }
 
-    public News(String title , Boolean isDeleted, String fulltext, String source) {
+    public News(String title , Boolean isDeleted, String fulltext, String source , int categoryId) {
         this.title = title;
         this.fulltext = fulltext;
         this.source = source;
         this.isDeleted = isDeleted;
+        this.categoryId = categoryId;
 
     }
 
@@ -73,5 +76,13 @@ public class News {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 }

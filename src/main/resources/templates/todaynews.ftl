@@ -18,7 +18,10 @@
     <label>Введите полный текст новости</label>
     <input type="text" name="newsFulltext">
     </p>
-
+    <p>
+        <label>Введите номер Категории</label>
+        <input type="text" name="newsCategoryId">
+    </p>
     <button type="submit">Отправить</button>
 </form>
 
