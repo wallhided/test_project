@@ -26,9 +26,9 @@ public class News {
     private String source;
 
 
-    public News(){
-    }
+public News(){
 
+}
     public News(String title , Boolean isDeleted, String fulltext, String source , int categoryId) {
         this.title = title;
         this.fulltext = fulltext;

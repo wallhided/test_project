@@ -4,7 +4,7 @@
 <body>
 <h1>Все новости </h1>
 
-<form action="/new-news" method="POST">
+<form action="/update" method="POST">
 
     <p>
         <label>Измените название заголовка</label>
